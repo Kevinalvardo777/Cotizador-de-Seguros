@@ -114,10 +114,8 @@ const Formulario = ({guardarResumen}) => {
 
         guardarResumen({
             cotizacion: resultado,
-            datos : {
-
-            }
-        })
+            datos
+        });
     }
 
     return ( 
