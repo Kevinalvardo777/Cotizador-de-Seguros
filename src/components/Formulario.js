@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styled from '@emotion/styled';
+import {obtenerDiferenciaYear, calcularMarca} from '../helper'
 
 const Campo = styled.div`
     display : flex;
@@ -75,18 +76,31 @@ const Formulario = () => {
     const cotizarSeguro = e =>{
         e.preventDefault();
 
-        if (marca.trim()=== '' || year.trim() === '' || plan.trum() === ''){
+        if (marca.trim()=== '' || year.trim() === '' || plan.trim() === ''){
             guardarError(true);
             return;
         }
         guardarError(false);
 
+        //base de 2000
+        let resultado = 2000;
+
         //obtener la diferencia de años
+        const diferencia = obtenerDiferenciaYear(year);
+        console.log(diferencia);
+
+      
 
         //por cada año  hay que restar el 3% del valor
+        resultado -= ((diferencia * 3) * resultado) / 100;
+        console.log(resultado);
 
-        //Americano 15
-        //Asiatico 5
+        //Americano 15%
+
+        //Asiatico 5%
+        //Europeo 30%
+        resultado = calcularMarca(marca)* resultado;
+        console.log(resultado);
 
         //Básico aumenta 20%, completa 50%
 
